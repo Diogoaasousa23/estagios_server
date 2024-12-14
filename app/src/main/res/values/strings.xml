@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">estagios_server</string>
+    <string name="logo_ipvc" />
+    <string name="escolha_uma_escola" />
+    <string name="est_gios">Estágios</string>
+    <string name="voltar">Voltar</string>
 </resources>

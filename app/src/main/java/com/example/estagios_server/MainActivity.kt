@@ -1,39 +1,53 @@
 package com.example.estagios_server
 
+import android.content.Intent
 import android.os.Bundle
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.ImageButton
 import androidx.appcompat.app.AppCompatActivity
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 
 class MainActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val request = ServiceBuilder.buildService(EndPoints::class.java)
-        val call = request.getCursos()
-        call.enqueue(object : Callback<List<Escola>> {
-            override fun onResponse(call: Call<List<Escola>>, response: Response<List<Escola>>) {
-                if (response.isSuccessful) {
-                    val escolas: List<Escola> = response.body()!!
-                    val displayText = StringBuilder()
-                    for (escola in escolas) {
-                        displayText.append("Escola: ").append(escola.escola).append("\n")
-                        for (curso in escola.cursos) {
-                            displayText.append(" - Curso: ").append(curso.nome).append("\n")
-                        }
-                        displayText.append("\n") // Para separar escolas com uma linha em branco
-                    }
-                    findViewById<TextView>(R.id.txtDisplay).text = displayText.toString()
-                }
-            }
+        // Referência aos botões de imagem
+        val buttonESE: ImageButton = findViewById(R.id.button_ese)
+        val buttonESA: ImageButton = findViewById(R.id.button_esa)
+        val buttonESTG: ImageButton = findViewById(R.id.button_estg)
+        val buttonESS: ImageButton = findViewById(R.id.button_ess)
+        val buttonESCE: ImageButton = findViewById(R.id.button_esce)
+        val buttonESDL: ImageButton = findViewById(R.id.button_esdl)
 
-            override fun onFailure(call: Call<List<Escola>>, t: Throwable) {
-                Toast.makeText(this@MainActivity, "${t.message}", Toast.LENGTH_SHORT).show()
-            }
-        })
+        // Configuração do clique nos botões
+        buttonESE.setOnClickListener {
+            openActivity(ESE::class.java)
+        }
+
+        buttonESA.setOnClickListener {
+            openActivity(ESA::class.java)
+        }
+
+        buttonESTG.setOnClickListener {
+            openActivity(ESTG::class.java)
+        }
+
+        buttonESS.setOnClickListener {
+            openActivity(ESS::class.java)
+        }
+
+        buttonESCE.setOnClickListener {
+            openActivity(ESCE::class.java)
+        }
+
+        buttonESDL.setOnClickListener {
+            openActivity(ESDL::class.java)
+        }
+    }
+
+    // Função para abrir a Activity passada como parâmetro
+    private fun openActivity(activityClass: Class<*>) {
+        val intent = Intent(this, activityClass)
+        startActivity(intent)
     }
 }

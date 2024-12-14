@@ -1,19 +1,158 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    android:orientation="vertical">
+    android:padding="16dp"
+    android:background="@android:color/white"
+    tools:context=".MainActivity">
 
+    <!--Logo IPVC -->
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="wrap_content"
+        android:layout_height="90dp"
+        android:src="@drawable/ipvc"
+        android:scaleType="centerInside"
+        android:contentDescription="logo_ipvc" />
+
+    <!-- Título da Aplicação -->
     <TextView
-        android:id="@+id/txtDisplay"
+        android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="Escolha uma escola"
+        android:layout_below="@+id/logo"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_centerHorizontal="true"
+        android:paddingBottom="16dp"
+        android:textColor="@color/black" />
+
+    <!-- Coluna Esquerda: Botão ESE -->
+    <ImageButton
+        android:id="@+id/button_ese"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_below="@id/title"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:src="@drawable/ese_logo"
+        android:contentDescription="logo_ese"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:scaleType="centerInside" />
+
+    <!-- Coluna Direita: Botão ESA -->
+    <ImageButton
+        android:id="@+id/button_esa"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_alignTop="@id/button_ese"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="16dp"
+        android:src="@drawable/esa_logo"
+        android:contentDescription="logo_da_esa"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:scaleType="centerInside" />
+
+    <!-- Coluna Esquerda: Botão ESTG -->
+    <ImageButton
+        android:id="@+id/button_estg"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_below="@id/button_ese"
+        android:layout_alignStart="@id/button_ese"
+        android:layout_marginTop="16dp"
+        android:src="@drawable/estg_logo"
+        android:contentDescription="logo_da_estg"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:scaleType="centerInside" />
+
+    <!-- Coluna Direita: Botão ESS -->
+    <ImageButton
+        android:id="@+id/button_ess"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_below="@id/button_esa"
+        android:layout_alignEnd="@id/button_esa"
+        android:layout_marginTop="16dp"
+        android:src="@drawable/ess_logo"
+        android:contentDescription="logo_da_ess"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:scaleType="centerInside" />
+
+    <!-- Coluna Esquerda: Botão ESCE -->
+    <ImageButton
+        android:id="@+id/button_esce"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_below="@id/button_estg"
+        android:layout_alignStart="@id/button_estg"
+        android:layout_marginTop="16dp"
+        android:src="@drawable/esce_logo"
+        android:contentDescription="logo_da_esce"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:scaleType="centerInside" />
+
+    <!-- Coluna Direita: Botão ESDL -->
+    <ImageButton
+        android:id="@+id/button_esdl"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_below="@id/button_ess"
+        android:layout_alignEnd="@id/button_ess"
+        android:layout_marginTop="16dp"
+        android:src="@drawable/esdl_logo"
+        android:contentDescription="logo_da_esdl"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:scaleType="centerInside" />
+
+    <!-- LinearLayout para Exibir Cursos -->
+    <LinearLayout
+        android:id="@+id/linearLayoutCursos"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_below="@+id/button_ese"
         android:padding="16dp"
-        android:text="Cursos Disponíveis:"
-        android:textSize="18sp"
-        />
+        android:visibility="gone"
+        android:layout_marginTop="16dp">
+        <!-- TextView para os Cursos -->
+    </LinearLayout>
+
+    <!-- Botões de Opções ao final -->
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:padding="16dp"
+        android:background="@android:color/white">
+
+        <!-- Checkbox para Som -->
+        <CheckBox
+            android:id="@+id/checkbox_som"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Som"
+            android:checked="true" />
+
+        <!-- Checkbox para Vibração -->
+        <CheckBox
+            android:id="@+id/checkbox_vibracao"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Vibração"
+            android:checked="false" />
+
+        <!-- Checkbox para Notificações -->
+        <CheckBox
+            android:id="@+id/checkbox_notificacoes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Notificações"
+            android:checked="true" />
+    </LinearLayout>
 </RelativeLayout>
