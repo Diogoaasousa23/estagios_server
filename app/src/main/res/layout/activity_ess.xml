@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <!-- Container da imagem no topo -->
+    <ImageView
+        android:id="@+id/imageViewTop"
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:src="@drawable/ipvc"
+        android:scaleType="centerCrop"
+        android:layout_alignParentTop="true"
+        android:layout_marginBottom="20dp" /> <!-- Pequena distância entre a imagem e o ListView -->
+
+    <!-- Lista de cursos -->
+    <ListView
+        android:id="@+id/listViewCursos"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/imageViewTop" /> <!-- Exibe a lista abaixo da imagem -->
+
+    <!-- Botões ao final do layout -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="8dp"> <!-- Pequena distância entre os botões e o fundo da tela -->
+
+        <!-- Botão de estágios -->
+        <Button
+            android:id="@+id/button_estagios"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/est_gios"
+            android:textColor="@android:color/white" />
+
+        <!-- Botão de voltar -->
+        <Button
+            android:id="@+id/button_voltar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/voltar"
+            android:textColor="@android:color/white"
+            android:layout_marginStart="8dp" /> <!-- Pequena distância entre os botões -->
+    </LinearLayout>
+</RelativeLayout>
