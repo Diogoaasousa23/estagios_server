@@ -13,5 +13,6 @@ data class Curso(
 data class LocalEstagio(
     val nome: String,
     val latitude: Double,
-    val longitude: Double
+    val longitude: Double,
+    val numeroAlunos: Int
 )

@@ -63,13 +63,14 @@ class MapaEstagios : AppCompatActivity(), OnMapReadyCallback {
                     escolas?.forEach { escola ->
                         escola.cursos.forEach { curso ->
                             curso.locaisEstagio.forEach { localEstagio ->
-                                // Adiciona o marcador ao mapa
+                                // Adiciona o marcador ao mapa com o número de alunos
                                 googleMap.addMarker(
                                     MarkerOptions()
                                         .position(LatLng(localEstagio.latitude, localEstagio.longitude))
-                                        .title(localEstagio.nome)
-                                        .snippet("Escola: ${escola.escola}, Curso: ${curso.nome}")
+                                        .title("${localEstagio.nome} | Alunos: ${localEstagio.numeroAlunos}")
+                                        .snippet("Escola: ${escola.escola} | Curso: ${curso.nome}")
                                 )
+
                             }
                         }
                     }
