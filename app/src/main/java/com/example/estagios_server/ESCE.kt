@@ -26,7 +26,7 @@ class ESCE : AppCompatActivity() {
             override fun onResponse(call: Call<List<Escola>>, response: Response<List<Escola>>) {
                 if (response.isSuccessful) {
                     // Filtra os cursos da Escola Superior de Tecnologia e Gestão
-                    val cursos = response.body()?.find { it.escola == "Escola Superior de Ciências Empresariais" }?.cursos ?: emptyList()
+                    val cursos = response.body()?.find { it.escola == "ESCE" }?.cursos ?: emptyList()
                     // Configura o adaptador com os cursos filtrados
                     val adapter = CursoAdapter(this@ESCE, cursos)
                     listViewCursos.adapter = adapter

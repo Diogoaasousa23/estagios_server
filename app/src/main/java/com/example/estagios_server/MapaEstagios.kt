@@ -44,27 +44,32 @@ class MapaEstagios : AppCompatActivity(), OnMapReadyCallback {
         googleMap = map
         googleMap.uiSettings.isZoomControlsEnabled = true
 
-        // Configura a localização inicial do mapa em Viana do Castelo
-        val initialLocation = LatLng(41.6932, -8.8329) // Coordenadas de Viana do Castelo
+        // Configura a localização inicial do mapa (por exemplo, Viana do Castelo)
+        val initialLocation = LatLng(41.694581, -8.846861) // Exemplo: Viana do Castelo, Portugal
         googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(initialLocation, 12f))
 
         // Carregar os locais de estágio do web service
         carregarLocais()
     }
 
-
     private fun carregarLocais() {
-        val request = ServiceBuilder.buildService(EndPoints::class.java)
-        val call = request.getCursos()
+        // Suponha que o serviço de API já tenha sido carregado
+        val retrofit = ServiceBuilder.buildService(EndPoints::class.java)
 
-        call.enqueue(object : Callback<List<Escola>> {
+        retrofit.getCursos().enqueue(object : Callback<List<Escola>> {
             override fun onResponse(call: Call<List<Escola>>, response: Response<List<Escola>>) {
                 if (response.isSuccessful) {
                     val escolas = response.body()
                     escolas?.forEach { escola ->
                         escola.cursos.forEach { curso ->
-                            curso.locaisEstagio.forEach { local ->
-                                adicionarMarcadorNoMapa(local)
+                            curso.locaisEstagio.forEach { localEstagio ->
+                                // Adiciona o marcador ao mapa
+                                googleMap.addMarker(
+                                    MarkerOptions()
+                                        .position(LatLng(localEstagio.latitude, localEstagio.longitude))
+                                        .title(localEstagio.nome)
+                                        .snippet("Escola: ${escola.escola}, Curso: ${curso.nome}")
+                                )
                             }
                         }
                     }
@@ -75,14 +80,5 @@ class MapaEstagios : AppCompatActivity(), OnMapReadyCallback {
                 // Tratar erro
             }
         })
-    }
-
-    private fun adicionarMarcadorNoMapa(local: LocalEstagio) {
-        val position = LatLng(local.latitude, local.longitude)
-        googleMap.addMarker(
-            MarkerOptions()
-                .position(position)
-                .title(local.nome)
-        )
     }
 }
