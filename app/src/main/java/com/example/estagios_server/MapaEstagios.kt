@@ -9,6 +9,10 @@ import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.maps.model.MarkerOptions
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class MapaEstagios : AppCompatActivity(), OnMapReadyCallback {
 
@@ -40,8 +44,45 @@ class MapaEstagios : AppCompatActivity(), OnMapReadyCallback {
         googleMap = map
         googleMap.uiSettings.isZoomControlsEnabled = true
 
-        // Configura a localização inicial do mapa
-        val initialLocation = LatLng(41.1496, -8.6109) // Exemplo: Braga, Portugal
+        // Configura a localização inicial do mapa em Viana do Castelo
+        val initialLocation = LatLng(41.6932, -8.8329) // Coordenadas de Viana do Castelo
         googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(initialLocation, 12f))
+
+        // Carregar os locais de estágio do web service
+        carregarLocais()
+    }
+
+
+    private fun carregarLocais() {
+        val request = ServiceBuilder.buildService(EndPoints::class.java)
+        val call = request.getCursos()
+
+        call.enqueue(object : Callback<List<Escola>> {
+            override fun onResponse(call: Call<List<Escola>>, response: Response<List<Escola>>) {
+                if (response.isSuccessful) {
+                    val escolas = response.body()
+                    escolas?.forEach { escola ->
+                        escola.cursos.forEach { curso ->
+                            curso.locaisEstagio.forEach { local ->
+                                adicionarMarcadorNoMapa(local)
+                            }
+                        }
+                    }
+                }
+            }
+
+            override fun onFailure(call: Call<List<Escola>>, t: Throwable) {
+                // Tratar erro
+            }
+        })
+    }
+
+    private fun adicionarMarcadorNoMapa(local: LocalEstagio) {
+        val position = LatLng(local.latitude, local.longitude)
+        googleMap.addMarker(
+            MarkerOptions()
+                .position(position)
+                .title(local.nome)
+        )
     }
 }
