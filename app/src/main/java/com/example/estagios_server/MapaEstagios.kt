@@ -35,7 +35,7 @@ class MapaEstagios : AppCompatActivity(), OnMapReadyCallback {
         // Configuração do botão de voltar para compatibilidade com o OnBackPressedDispatcher
         onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
-                finish() // Fecha a atividade atual e retorna
+                finish()
             }
         })
     }
@@ -77,7 +77,6 @@ class MapaEstagios : AppCompatActivity(), OnMapReadyCallback {
             }
 
             override fun onFailure(call: Call<List<Escola>>, t: Throwable) {
-                // Tratar erro
             }
         })
     }

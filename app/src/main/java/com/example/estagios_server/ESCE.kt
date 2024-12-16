@@ -25,16 +25,13 @@ class ESCE : AppCompatActivity() {
         call.enqueue(object : Callback<List<Escola>> {
             override fun onResponse(call: Call<List<Escola>>, response: Response<List<Escola>>) {
                 if (response.isSuccessful) {
-                    // Filtra os cursos da Escola Superior de Tecnologia e Gestão
                     val cursos = response.body()?.find { it.escola == "ESCE" }?.cursos ?: emptyList()
-                    // Configura o adaptador com os cursos filtrados
                     val adapter = CursoAdapter(this@ESCE, cursos)
                     listViewCursos.adapter = adapter
                 }
             }
 
             override fun onFailure(call: Call<List<Escola>>, t: Throwable) {
-                // Lida com falha na requisição
             }
         })
         // Configurar o clique no botão "Estágios"

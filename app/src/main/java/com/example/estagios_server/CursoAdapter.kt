@@ -18,12 +18,10 @@ class CursoAdapter(context: Context, cursos: List<Curso>) :
         val nomeCurso: TextView = view.findViewById(R.id.nomeCurso)
         nomeCurso.text = curso?.nome
 
-        // Ajustando o comportamento do TextView para múltiplas linhas
-        nomeCurso.ellipsize = TextUtils.TruncateAt.END // Truncar texto se exceder uma linha
-        nomeCurso.maxLines = 2 // Permitir duas linhas
+        nomeCurso.ellipsize = TextUtils.TruncateAt.END
+        nomeCurso.maxLines = 2
         nomeCurso.isSingleLine = false // Permitir várias linhas
 
-        // Alterando a cor de fundo para branco
         view.setBackgroundColor(ContextCompat.getColor(context, R.color.white))
 
         return view

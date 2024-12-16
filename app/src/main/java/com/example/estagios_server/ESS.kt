@@ -47,7 +47,6 @@ class ESS : AppCompatActivity() {
 
         val buttonVoltar: Button = findViewById(R.id.button_voltar)
         buttonVoltar.setOnClickListener {
-            // Finaliza a atividade atual e retorna à anterior
             onBackPressed()
         }
     }
