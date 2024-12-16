@@ -12,14 +12,13 @@
         android:src="@drawable/ipvc"
         android:scaleType="centerCrop"
         android:layout_alignParentTop="true"
-        android:layout_marginBottom="20dp" /> <!-- Pequena distância entre a imagem e o ListView -->
-
+        android:layout_marginBottom="20dp" />
     <!-- Lista de cursos -->
     <ListView
         android:id="@+id/listViewCursos"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/imageViewTop" /> <!-- Exibe a lista abaixo da imagem -->
+        android:layout_below="@id/imageViewTop" />
 
     <!-- Botões ao final do layout -->
     <LinearLayout
@@ -27,7 +26,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_alignParentBottom="true"
-        android:layout_marginTop="8dp"> <!-- Pequena distância entre os botões e o fundo da tela -->
+        android:layout_marginTop="8dp">
 
         <!-- Botão de estágios -->
         <Button
@@ -44,6 +43,6 @@
             android:layout_height="wrap_content"
             android:text="@string/voltar"
             android:textColor="@android:color/white"
-            android:layout_marginStart="8dp" /> <!-- Pequena distância entre os botões -->
+            android:layout_marginStart="8dp" />
     </LinearLayout>
 </RelativeLayout>
