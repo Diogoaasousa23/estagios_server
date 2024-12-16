@@ -109,20 +109,6 @@
         android:background="?attr/selectableItemBackgroundBorderless"
         android:scaleType="centerInside" />
 
-    <!-- LinearLayout para Exibir Cursos -->
-    <LinearLayout
-        android:id="@+id/linearLayoutCursos"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_below="@+id/button_ese"
-        android:padding="16dp"
-        android:visibility="gone"
-        android:layout_marginTop="16dp">
-        <!-- TextView para os Cursos -->
-    </LinearLayout>
-
-    <!-- Botões de Opções ao final -->
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"

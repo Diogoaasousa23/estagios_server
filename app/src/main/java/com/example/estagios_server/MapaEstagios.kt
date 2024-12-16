@@ -44,8 +44,8 @@ class MapaEstagios : AppCompatActivity(), OnMapReadyCallback {
         googleMap = map
         googleMap.uiSettings.isZoomControlsEnabled = true
 
-        // Configura a localização inicial do mapa (por exemplo, Viana do Castelo)
-        val initialLocation = LatLng(41.694581, -8.846861) // Exemplo: Viana do Castelo, Portugal
+        // Configura a localização inicial do mapa
+        val initialLocation = LatLng(41.694581, -8.846861)
         googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(initialLocation, 12f))
 
         // Carregar os locais de estágio do web service
@@ -53,7 +53,6 @@ class MapaEstagios : AppCompatActivity(), OnMapReadyCallback {
     }
 
     private fun carregarLocais() {
-        // Suponha que o serviço de API já tenha sido carregado
         val retrofit = ServiceBuilder.buildService(EndPoints::class.java)
 
         retrofit.getCursos().enqueue(object : Callback<List<Escola>> {
