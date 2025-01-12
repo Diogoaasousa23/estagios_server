@@ -11,7 +11,7 @@
     <ImageView
         android:id="@+id/logo"
         android:layout_width="wrap_content"
-        android:layout_height="90dp"
+        android:layout_height="80dp"
         android:src="@drawable/ipvc"
         android:scaleType="centerInside"
         android:contentDescription="logo_ipvc" />
@@ -32,8 +32,8 @@
     <!-- Coluna Esquerda: Botão ESE -->
     <ImageButton
         android:id="@+id/button_ese"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
         android:layout_below="@id/title"
         android:layout_alignParentStart="true"
         android:layout_marginStart="16dp"
@@ -46,8 +46,8 @@
     <!-- Coluna Direita: Botão ESA -->
     <ImageButton
         android:id="@+id/button_esa"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
         android:layout_alignTop="@id/button_ese"
         android:layout_alignParentEnd="true"
         android:layout_marginEnd="16dp"
@@ -59,8 +59,8 @@
     <!-- Coluna Esquerda: Botão ESTG -->
     <ImageButton
         android:id="@+id/button_estg"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
         android:layout_below="@id/button_ese"
         android:layout_alignStart="@id/button_ese"
         android:layout_marginTop="16dp"
@@ -72,8 +72,8 @@
     <!-- Coluna Direita: Botão ESS -->
     <ImageButton
         android:id="@+id/button_ess"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
         android:layout_below="@id/button_esa"
         android:layout_alignEnd="@id/button_esa"
         android:layout_marginTop="16dp"
@@ -85,8 +85,8 @@
     <!-- Coluna Esquerda: Botão ESCE -->
     <ImageButton
         android:id="@+id/button_esce"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
         android:layout_below="@id/button_estg"
         android:layout_alignStart="@id/button_estg"
         android:layout_marginTop="16dp"
@@ -98,8 +98,8 @@
     <!-- Coluna Direita: Botão ESDL -->
     <ImageButton
         android:id="@+id/button_esdl"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
         android:layout_below="@id/button_ess"
         android:layout_alignEnd="@id/button_ess"
         android:layout_marginTop="16dp"
@@ -113,7 +113,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:padding="16dp"
+        android:padding="10dp"
         android:background="@android:color/white">
 
         <!-- Checkbox para Som -->
