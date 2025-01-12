@@ -1,27 +1,102 @@
-<?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
     android:background="@color/white">
 
-
-    <!-- Título da tela -->
-    <TextView
-        android:id="@+id/text_view_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/coment_rios"
-        android:textSize="24sp"
-        android:layout_margin="16dp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"/>
-
-    <!-- RecyclerView para mostrar os comentários -->
+    <!-- RecyclerView para os comentários -->
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_view_comments"
+        android:id="@+id/recyclerview"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@id/text_view_title"
-        android:layout_marginTop="16dp"/>
+        android:layout_height="0dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="40dp"
+        android:layout_alignParentTop="true"
+        android:layout_above="@id/linear_buttons"
+        tools:listitem="@layout/recycler_view_comments"/>
+
+    <!-- LinearLayout para os botões -->
+    <LinearLayout
+        android:id="@+id/linear_buttons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical"
+        android:layout_marginBottom="30dp"> <!-- Margem inferior para os botões -->
+
+        <!-- Primeira linha de botões -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/button_ESTG"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/estg"
+                android:layout_weight="1"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"/>
+
+            <Button
+                android:id="@+id/button_ESA"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/esa"
+                android:layout_weight="1"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"/>
+
+            <Button
+                android:id="@+id/button_ESDL"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/esdl"
+                android:layout_weight="1"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"/>
+
+        </LinearLayout>
+
+        <!-- Segunda linha de botões -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/button_ESE"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/ese"
+                android:layout_weight="1"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"/>
+
+            <Button
+                android:id="@+id/button_ESS"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/ess"
+                android:layout_weight="1"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"/>
+
+            <Button
+                android:id="@+id/button_ESCE"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/esce"
+                android:layout_weight="1"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
 
 </RelativeLayout>

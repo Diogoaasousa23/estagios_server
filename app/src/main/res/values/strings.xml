@@ -5,4 +5,10 @@
     <string name="est_gios">Estágios</string>
     <string name="voltar">Voltar</string>
     <string name="coment_rios">Comentários</string>
+    <string name="estg">ESTG</string>
+    <string name="esa">ESA</string>
+    <string name="esdl">ESDL</string>
+    <string name="ese">ESE</string>
+    <string name="ess">ESS</string>
+    <string name="esce">ESCE</string>
 </resources>

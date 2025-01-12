@@ -17,5 +17,23 @@ interface CommentDao {
     @Query("SELECT * FROM comments")
     fun getAllComments(): LiveData<List<Comment>>  // Retorna LiveData para observação
 
-    // Você pode adicionar mais métodos conforme necessário
+    // Funções para obter comentários de escolas específicas, retornando LiveData
+
+    @Query("SELECT * FROM comments WHERE school LIKE 'ESTG%'")
+    fun getCommentsFromESTG(): LiveData<List<Comment>>
+
+    @Query("SELECT * FROM comments WHERE school LIKE 'ESA%'")
+    fun getCommentsFromESA(): LiveData<List<Comment>>
+
+    @Query("SELECT * FROM comments WHERE school LIKE 'ESDL%'")
+    fun getCommentsFromESDL(): LiveData<List<Comment>>
+
+    @Query("SELECT * FROM comments WHERE school LIKE 'ESE%'")
+    fun getCommentsFromESE(): LiveData<List<Comment>>
+
+    @Query("SELECT * FROM comments WHERE school LIKE 'ESS%'")
+    fun getCommentsFromESS(): LiveData<List<Comment>>
+
+    @Query("SELECT * FROM comments WHERE school LIKE 'ESCE%'")
+    fun getCommentsFromESCE(): LiveData<List<Comment>>
 }

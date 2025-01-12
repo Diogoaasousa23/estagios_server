@@ -7,7 +7,6 @@
     android:layout_marginBottom="8dp"
     android:background="?android:attr/selectableItemBackground">
 
-    <!-- Comentário -->
     <TextView
         android:id="@+id/commentText"
         android:layout_width="match_parent"
