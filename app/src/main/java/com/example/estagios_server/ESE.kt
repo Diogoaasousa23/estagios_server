@@ -1,8 +1,10 @@
 package com.example.estagios_server
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
+import android.widget.CheckBox
 import android.widget.ListView
 import androidx.appcompat.app.AppCompatActivity
 
@@ -17,6 +19,21 @@ class ESE : AppCompatActivity() {
         setContentView(R.layout.activity_ese)
 
         val listViewCursos: ListView = findViewById(R.id.listViewCursos)
+        val checkboxFavorito: CheckBox = findViewById(R.id.checkbox_favorito)
+
+        // Gerenciar estado do CheckBox com SharedPreferences
+        val sharedPreferences = getSharedPreferences("FavoritosPrefs", Context.MODE_PRIVATE)
+        val isFavorito = sharedPreferences.getBoolean("ESE_Favorito", false)
+
+        // Atualizar estado do checkbox
+        checkboxFavorito.isChecked = isFavorito
+
+        // Listener para salvar o estado do checkbox
+        checkboxFavorito.setOnCheckedChangeListener { _, isChecked ->
+            val editor = sharedPreferences.edit()
+            editor.putBoolean("ESE_Favorito", isChecked)
+            editor.apply()
+        }
 
         // Obtém os cursos da API
         val request = ServiceBuilder.buildService(EndPoints::class.java)

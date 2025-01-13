@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -13,6 +12,7 @@
         android:scaleType="centerCrop"
         android:layout_alignParentTop="true"
         android:layout_marginBottom="20dp" />
+
     <!-- Lista de cursos -->
     <ListView
         android:id="@+id/listViewCursos"
@@ -20,12 +20,13 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/imageViewTop" />
 
-    <!-- Botões ao final do layout -->
+    <!-- Botões e checkbox ao final do layout -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_alignParentBottom="true"
+        android:gravity="center_vertical"
         android:layout_marginTop="8dp">
 
         <!-- Botão de estágios -->
@@ -43,6 +44,14 @@
             android:layout_height="wrap_content"
             android:text="@string/voltar"
             android:textColor="@android:color/white"
+            android:layout_marginStart="8dp" />
+
+        <!-- Checkbox Favorito -->
+        <CheckBox
+            android:id="@+id/checkbox_favorito"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Favorito"
             android:layout_marginStart="8dp" />
     </LinearLayout>
 </RelativeLayout>
